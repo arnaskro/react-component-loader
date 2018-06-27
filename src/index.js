@@ -12,23 +12,24 @@ class ReactModuleImport extends Component {
 
   componentDidMount() {
     // expose React for UMD build
-    window.React = React;
+    if (typeof(window.React) === 'undefined')
+      window.React = React;
+      
     // async load of remote UMD component
     script(this.props.url, () => {
-      var target = window[this.props.name];
+      let target = window[this.props.name];
 
-      if (target) {
+      if (target.component) {
+        let { component } = target;
 
-        console.log(target);
-
-        if(target.__esModule) {
-          target = target.default;
+        if (component.__esModule) {
+          component = component.default;
         }
 
         // loaded OK
         this.setState({
           error: null,
-          Component: target
+          Component: component
         });
       } else {
         // loaded fail
