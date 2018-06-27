@@ -27,6 +27,10 @@ class ReactModuleImport extends Component {
         if (component.__esModule) {
           component = component.default;
         }
+        
+        if (store.__esModule) {
+          store = store.default;
+        }
 
         // loaded OK
         this.setState({
