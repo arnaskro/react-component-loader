@@ -1,8 +1,6 @@
 # react-module-import
 
-[![npm-package][npm-badge]][npm]
-<!-- ![status](https://img.shields.io/badge/status-early--development-red.svg) -->
-
+[![npm package][npm-badge]][npm]
 ## IN DEVELOPMENT
 
 Loads in an external module into your react project. The import should include the component itself, a reducer and the actions.
