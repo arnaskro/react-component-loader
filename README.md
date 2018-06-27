@@ -1,7 +1,7 @@
 # react-module-import
 
 [![npm-package][npm-badge]][npm]
-![status](https://img.shields.io/badge/status-early--development-red.svg)
+<!-- ![status](https://img.shields.io/badge/status-early--development-red.svg) -->
 
 ## IN DEVELOPMENT
 
