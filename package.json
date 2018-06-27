@@ -1,6 +1,6 @@
 {
   "name": "react-module-import",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Loads in an external component into your react project. The import includes the component itself, reducer and actions.",
   "main": "lib/index.js",
   "module": "es/index.js",
