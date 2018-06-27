@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import script from 'scriptjs';
-import { Provider } from 'react-redux';
 
 // load remote component and return it when ready
 // display current children while loading 
 class ReactModuleImport extends Component {
   state = {
-    Store: null,
     Component: null,
     error: null
   }
@@ -21,23 +19,28 @@ class ReactModuleImport extends Component {
     script(this.props.url, () => {
       let target = window[this.props.name];
 
-      if (target.component && target.store) {
-        let { component, store } = target;
+      if (target.component && target.reducer) {
+        let { component, reducer } = target;
 
         if (component.__esModule) {
           component = component.default;
         }
         
-        if (store.__esModule) {
-          store = store.default;
+        if (reducer.__esModule) {
+          reducer = reducer.default;
         }
 
         // loaded OK
         this.setState({
           error: null,
-          Component: component,
-          Store: store
+          Component: component
         });
+
+        // Attach reducer to main store
+        if (window.Store) {
+          window.Store.attachReducers({ reducer })
+        }
+         
       } else {
         // loaded fail
         this.setState({
@@ -50,7 +53,7 @@ class ReactModuleImport extends Component {
 
   render() {
     if (this.state.Component) {
-      return <Provider store={this.state.Store} ><this.state.Component {...this.props.props || {} } /></Provider>;
+      return <this.state.Component {...this.props.props || {} } />;
     } else if (this.state.error) {
       return <div>{ this.state.error }</div>;
     } else {
