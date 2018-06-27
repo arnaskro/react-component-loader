@@ -1,6 +1,6 @@
 # react-module-import
 
-[![npm package][npm-badge]][npm]
+[![react module import][npm-badge]][npm]
 ## IN DEVELOPMENT
 
 Loads in an external module into your react project. The import should include the component itself, a reducer and the actions.
@@ -8,7 +8,7 @@ Loads in an external module into your react project. The import should include t
 Example below:
 ...
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+[npm-badge]: https://img.shields.io/npm/v/react-module-import.png?style=flat-square
+[npm]: https://www.npmjs.org/package/react-module-import
 
 
