@@ -1,7 +1,7 @@
 {
   "name": "react-component-loader",
   "version": "1.0.0",
-  "description": "react-component-loader React component",
+  "description": "Loads in an external component into your react project. The import includes the component itself, reducer and actions.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -23,11 +23,14 @@
     "react": "16.x"
   },
   "devDependencies": {
+    "np": "^3.0.4",
     "nwb": "0.21.x",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "scriptjs": "^2.5.8"
   },
-  "author": "",
+  "author": "Arnas Kromelis <arnas@kromelis.lt>",
   "homepage": "",
   "license": "MIT",
   "repository": "",

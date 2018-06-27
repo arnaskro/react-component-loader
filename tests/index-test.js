@@ -2,9 +2,9 @@ import expect from 'expect'
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
 
-import Component from 'src/'
+import Loader from 'src/'
 
-describe('Component', () => {
+describe('Loader', () => {
   let node
 
   beforeEach(() => {
@@ -15,9 +15,22 @@ describe('Component', () => {
     unmountComponentAtNode(node)
   })
 
-  it('displays a welcome message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Welcome to React components')
+  it('displays a loading message', () => {
+
+    const Test = (props) => (
+      <Loader 
+        url="https://rawgit.com/coryhouse/my-component/master/umd/my-component.js" 
+        name="MyComponent" 
+        props={{username: 'Person', message: 'you are here'}}
+        >
+        <p>Loading remote component...</p>
+      </Loader>
+    )
+
+    const Component = <Test username= 'Person' message= 'you are here' />;
+
+    render(Component, node, () => {
+      expect(node.innerHTML).toContain('Loading remote component...')
     })
   })
 })
