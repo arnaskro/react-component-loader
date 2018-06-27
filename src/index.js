@@ -4,7 +4,7 @@ import script from 'scriptjs';
 
 // load remote component and return it when ready
 // display current children while loading 
-class ReactComponentLoader extends Component {
+class ReactModuleImport extends Component {
   state = {
     Component: null,
     error: null
@@ -51,10 +51,10 @@ class ReactComponentLoader extends Component {
   }
 }
 
-ReactComponentLoader.propTypes = {
+ ReactModuleImport.propTypes = {
   url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   props: PropTypes.object
 }
 
-export default ReactComponentLoader;
+export default  ReactModuleImport;
