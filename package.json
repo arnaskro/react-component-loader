@@ -17,7 +17,7 @@
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "release": "npm rnu build && np"
+    "release": "npm run build && np"
   },
   "dependencies": {},
   "peerDependencies": {
