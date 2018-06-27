@@ -38,7 +38,9 @@ class ReactModuleImport extends Component {
 
         // Attach reducer to main store
         if (window.Store) {
-          window.Store.attachReducers({ reducer })
+          let reducerObj = {};
+          reducerObj[this.props.name] = reducer;
+          window.Store.attachReducers(reducerObj)
         }
          
       } else {
