@@ -19,17 +19,13 @@ class ReactModuleImport extends Component {
     script(this.props.url, () => {
       let target = window[this.props.name];
 
-      if (target.component && target.reducer) {
-        let { component, reducer } = target;
+      if (target.component) {
+        let { component, reducers, reducer } = target;
 
         if (component.__esModule) {
           component = component.default;
         }
-        
-        if (reducer.__esModule) {
-          reducer = reducer.default;
-        }
-
+      
         // loaded OK
         this.setState({
           error: null,
@@ -39,8 +35,13 @@ class ReactModuleImport extends Component {
         // Attach reducer to main store
         if (window.Store) {
           let reducerObj = {};
-          reducerObj[this.props.name] = reducer;
-          console.log(reducerObj)
+          reducerObj[this.props.name] = {};
+          let curr;
+          for (var i = 0; i < reducers.length; i++) {
+            curr = reducers[i];
+            reducerObj[this.props.name][curr.path] = curr.reducer;
+          }
+
           window.Store.attachReducers(reducerObj)
         }
          
